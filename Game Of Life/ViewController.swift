@@ -12,11 +12,19 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var canvasView: UIView!
     
+    @IBAction func rebuildLife(sender: UIButton) {
+        timer.invalidate();
+        life.resetLife();
+        canvas.setNeedsDisplay();
+    }
+    
     var life = Life();
     let canvas: Canvas;
+    var timer: NSTimer;
     
     required init?(coder aDecoder: NSCoder) {
         canvas = Canvas(setLife: life);
+        timer = NSTimer();
         super.init(coder: aDecoder);
     }
     
@@ -39,14 +47,23 @@ class ViewController: UIViewController {
         
         canvasView.addSubview(canvas);
         
-        
+        let tapTouch = UITapGestureRecognizer(target: self, action: #selector(ViewController.start(_:)));
+        canvasView.addGestureRecognizer(tapTouch);
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func start(grec: UITapGestureRecognizer) -> Void {
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.10, target: self, selector: #selector(ViewController.tick), userInfo: nil, repeats: true);
+    }
+    
+    func tick() -> Void {
+        life.nextTick();
+        canvas.setNeedsDisplay();
+    }
 
 }
 

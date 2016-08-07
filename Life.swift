@@ -40,19 +40,60 @@ class Life {
     }
     
     //  --------------------------------------------------------------
+    //  Reset cells to new phases
+    //  --------------------------------------------------------------
+    func resetLife() -> Void {
+        
+        for cell in cells {
+            cell.phase = CellPhase.initRandom();
+        }
+        
+    }
+    
+    //  --------------------------------------------------------------
     //  Evolve world to next Tick
     //  --------------------------------------------------------------
     func nextTick() -> Void {
         
+        // -------
+        // Stage 1 filter existing results
+        // -------
+        // Select Dead & Alive
+        let alive = cells.filter {$0.phase == .Alive};
+        let dead = cells.filter {$0.phase == .Dead};
         
+        // -------
+        // Stage 2 Apply calculation to filtered in Stage 1
+        // -------
+        // Select cell which will die at next tick ( entity < 2 good neighbors)
+        let dying = alive.filter { !(2...3 ~= selectAliveNeighborsForCell($0)) };
         
+        // Select cells for reborn at next tick ( 3 good neighbors )
+        let reborn = dead.filter { selectAliveNeighborsForCell($0) == 3};
+        
+        // -------
+        // Stage 3 - Apply changes to cells
+        // -------
+        dying.map{$0.phase = .Dead};
+        
+        reborn.map{$0.phase = .Alive};
+        
+    }
+    
+    //  --------------------------------------------------------------
+    //  Alive Filter Map
+    //  --------------------------------------------------------------
+    func selectAliveNeighborsForCell(cell: Cell) -> Int {
+        return getCellNeighborsFilter(cell).filter{ cell in
+            cell.phase == .Alive
+        }.count
     }
     
     //  --------------------------------------------------------------
     //  Function with full example
     //  --------------------------------------------------------------
     func cellNeighbors(cell: Cell) -> [Cell] {
-        
+   
         var neighbors : [Cell] = [];
         
         for cell2 in cells {
@@ -75,7 +116,16 @@ class Life {
         return self.cells.getNeighbors { self.isCellNeighbor(cell, cell2: $0); }
         
     }
-    
+
+    //  --------------------------------------------------------------
+    //  Function with EXTENSION example
+    //  --------------------------------------------------------------
+    func getCellNeighborsFilter(cell: Cell) -> [Cell] {
+        
+        return self.cells.filterNeighbors { self.isCellNeighbor(cell, cell2: $0); }
+        
+    }
+
     //  --------------------------------------------------------------
     //  Function Determines nearby cells
     //  --------------------------------------------------------------
