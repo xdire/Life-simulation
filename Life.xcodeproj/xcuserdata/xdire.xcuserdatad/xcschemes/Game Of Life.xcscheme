@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9F162E3B1D5690B300C8E31E"
-               BuildableName = "Game Of Life.app"
-               BlueprintName = "Game Of Life"
-               ReferencedContainer = "container:Game Of Life.xcodeproj">
+               BuildableName = "Life.app"
+               BlueprintName = "Life"
+               ReferencedContainer = "container:Life.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9F162E4F1D5690B400C8E31E"
-               BuildableName = "Game Of LifeTests.xctest"
-               BlueprintName = "Game Of LifeTests"
-               ReferencedContainer = "container:Game Of Life.xcodeproj">
+               BuildableName = "Life.xctest"
+               BlueprintName = "LifeTests"
+               ReferencedContainer = "container:Life.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9F162E3B1D5690B300C8E31E"
-            BuildableName = "Game Of Life.app"
-            BlueprintName = "Game Of Life"
-            ReferencedContainer = "container:Game Of Life.xcodeproj">
+            BuildableName = "Life.app"
+            BlueprintName = "Life"
+            ReferencedContainer = "container:Life.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9F162E3B1D5690B300C8E31E"
-            BuildableName = "Game Of Life.app"
-            BlueprintName = "Game Of Life"
-            ReferencedContainer = "container:Game Of Life.xcodeproj">
+            BuildableName = "Life.app"
+            BlueprintName = "Life"
+            ReferencedContainer = "container:Life.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9F162E3B1D5690B300C8E31E"
-            BuildableName = "Game Of Life.app"
-            BlueprintName = "Game Of Life"
-            ReferencedContainer = "container:Game Of Life.xcodeproj">
+            BuildableName = "Life.app"
+            BlueprintName = "Life"
+            ReferencedContainer = "container:Life.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
